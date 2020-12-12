@@ -1,0 +1,10 @@
+.form-design{ 
+    width: 24%;
+  
+}
+@media screen and (max-width: 700px){
+.form-design{ 
+  width: 50%;
+
+}
+}
