@@ -97,7 +97,10 @@ Consultant
 <div style={{margin:10}}>
 <SingleLineGridList2/>
 </div>
+
+<div class="container">
 <BlogPage/>
+</div>
 <Footer style={{margin:10}}/>
 <FooterPage style={{margin:10}}/>
 </>
