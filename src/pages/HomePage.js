@@ -1,8 +1,3 @@
-
-import './HomePage.css';
-import Blog from './Blog';
-import D from '../images/D.jpg'
-import AboutPage from './AboutPage'
 import React,{useState} from 'react';
 import Navbar from '../CommonComponents/navbar';
 import CustomNavbar from '../CommonComponents/customNavbar';
@@ -13,12 +8,14 @@ import SingleLineGridList2 from '../CommonComponents/SingleLineGridList2';
 import Footer from '../CommonComponents/Footer';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
-import SearchExampleStandard from '../CommonComponents/search';
-import Asynchronous from '../CommonComponents/Asynchronous';
+import Example from '../CommonComponents/search';
+import DropdownExampleSearchSelectionTwo from '../CommonComponents/Dropdown';
 import ResponsiveEmbed from 'react-bootstrap/ResponsiveEmbed'
 import IframePage from '../CommonComponents/IframePage';
 import BlogPage from './BlogPage';
 import FooterPage from '../CommonComponents/FooterPage';
+import CategoryModal from '../CommonComponents/categoryModal';
+import MultiCarouselPage from '../CommonComponents/MultiCarouselPage';
 function HomePage() {
   
   
@@ -30,82 +27,90 @@ function HomePage() {
   if(matches){
     navBar=<Navbar/>
   }else{
-    navBar= <CustomNavbar/>
+    navBar= <>
+    <CustomNavbar/>
+    <div style={{marginTop:16}}>
+    <MDBRow >
+    <MDBCol size="6" >
+     
+    <DropdownExampleSearchSelectionTwo />
+   
+    </MDBCol>
+    <MDBCol size="6" >
+    <Example/>
+    </MDBCol>
+    </MDBRow>
+    </div>
+    </>
   }
   return (
 <>
 {navBar}
-<div className="jumbomargin">
-<Jumbotron fluid  style={{    backgroundImage:`url(${require("../images/room-3.jpeg")})`,height:400 }}>
+<div style={{marginTop:65}}>
+<Jumbotron fluid  style={{ backgroundImage: `url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg)`,height:450 }}>
 
 <MDBContainer>
 <MDBRow >
 <MDBCol size="6" >
-    <h1 style={{color:"black"}}>Fluid jumbotro</h1>
-    
-    <div style={{marginTop:95}}>
-    
+    <h1>Fluid jumbotro</h1>
+    <p>
+  
+      This is a modified jumbotron that occupies the entire horizontal space of
+      its parent.
+    </p>
+    <div style={{marginTop:120}}>
     <MDBRow  >
-    <MDBCol  size="3">
-   <div style={{marginLeft:10}}>
-    <Asynchronous />
-    </div>
+    <MDBCol size="4">
+   
+    <DropdownExampleSearchSelectionTwo />
     </MDBCol>
-    <MDBCol size="2" >
-    <div className="dsspace">
-    <SearchExampleStandard shape="large" />
+    <MDBCol size="2">
+    <div style={{marginLeft:20}}>
+    <Example shape="huge"/>
     </div>
     </MDBCol>
    </MDBRow>
    </div>
-      </MDBCol>
-   
+  
+
+    </MDBCol>
+    <MDBCol size="6">
+      <div style={{ width: 660, height: 'auto' }}>
+       
+        
+       
+</div>
+</MDBCol>
    
 </MDBRow>
    
-</MDBContainer>
-    
+
+    </MDBContainer>
 </Jumbotron>
 
 </div>
-
-<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Trending Categories</h1>
-<div style={{margin:100}}>
+ Trending Categories
+<div style={{margin:10}}>
 <SingleLineGridList/>
 </div>
 
-<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Consultant</h1>
-<div style={{margin:10 ,paddingLeft:15}}>
+Consultant
+<div style={{margin:10}}>
 <SingleLineGridList2/>
 </div>
-
-<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Consultant</h1>
-
-<div style={{margin:10,paddingLeft:15}}>
+Consultant
+<div style={{margin:10}}>
 <SingleLineGridList2/>
 </div>
-
-<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Consultant</h1>
-<div style={{margin:10,paddingLeft:15}}>
+Consultant
+<div style={{margin:10}}>
 <SingleLineGridList2/>
 </div>
-
-
-
-<div style={{margin:25 ,paddingTop:30}}>
-<Blog/>
-</div>
-
-<div class="container">
 <BlogPage/>
-</div>
-
-
-
 <Footer style={{margin:10}}/>
 <FooterPage style={{margin:10}}/>
-</>
 
+</>
   );
 }
 

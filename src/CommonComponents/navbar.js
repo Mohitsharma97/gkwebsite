@@ -189,7 +189,7 @@ export default function PrimarySearchAppBar() {
 
 	return (
 		<div className={classes.grow}>
-			<AppBar position="fixed" style={{  background:" linear-gradient(to right, #c31432, #240b36)" }}>
+			<AppBar position="fixed" style={{ backgroundColor: '#e60000' }}>
 				<Toolbar >
 				
 					<Typography className={classes.title} variant="h4" noWrap>
