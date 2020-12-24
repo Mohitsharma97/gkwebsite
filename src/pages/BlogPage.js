@@ -1,11 +1,11 @@
 import React from "react";
-import {  MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask, MDBIcon, MDBView, MDBBtn } from "mdbreact";
+import {  MDBRow, MDBCol, MDBCard, MDBCardBody, MDBMask,MDBIcon, MDBView, MDBBtn } from "mdbreact";
 import '@fortawesome/fontawesome-free/css/all.min.css'; 
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
 const BlogPage = () => {
   return (
-    <MDBCard className="my-5 px-5 pb-5">
+   
       <MDBCardBody className="text-center">
         <h2 className="h1-responsive font-weight-bold text-center my-5">
           Recent posts
@@ -110,7 +110,7 @@ const BlogPage = () => {
           </MDBCol>
         </MDBRow>
       </MDBCardBody>
-    </MDBCard>
+ 
   );
 }
 

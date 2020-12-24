@@ -1,10 +1,10 @@
 import React from "react";
-import "./FooterPage.css";
+import {NavLink} from 'react-router-dom';
 import {Link} from 'react-router-dom';
-function FooterPage() {
+import './Common.css'
+
+function Common() {
   return (
-    <div className="order-2 order-lg-1">
-    
     <div className="main-footer">
       <div className="container">
         <div className="row">
@@ -24,20 +24,20 @@ function FooterPage() {
             
             <ui className="list-unstyledo" id="i">
               <br/>
-              <Link to={{pathname:'/page/aboutCompany',data:"data"}}><h6>About Company</h6></Link>
-              <Link to={{pathname:'/page/feedback' ,data:"data"}}> <h6> Jobs & Career</h6></Link>
-              <Link to={{pathname:'/page/contactus' ,data:"data"}}> <h6>Contact Us</h6></Link>
-              <Link to={{pathname:'/page/feedback' ,data:"data"}}> <h6>Partner With Us</h6></Link>
+              <Link to={{pathname:'/about/Company' ,data:"data"}}><h6>About Company</h6></Link>
+              <Link to={{pathname:'/about/Career' ,data:"data"}}> <h6> Jobs & Career</h6></Link>
+              <Link to={{pathname:'/about/Contact' ,data:"data"}}> <h6>Contact Us</h6></Link>
+              <Link to={{pathname:'/about/Partner' ,data:"data"}}> <h6>Partner With Us</h6></Link>
             </ui>
           </div>
           <div className="col" id="w">
             <h3> SERVICES</h3>
             <ui className="list-unstyled">
               <br/>
-              <Link to={{pathname:'/page/advertise' ,data:"data"}}> <h6 style={{color:"black"}} >  Advertise With Us</h6></Link>
+              <Link to={{pathname:'/about/Advertise' ,data:"data"}}> <h6 style={{color:"black"}} >  Advertise With Us</h6></Link>
               <Link to={{pathname:'/about/Post your requirement' ,data:"data"}}><h6> Post Your Requirement</h6></Link>
               <Link to={{pathname:'/about/Complaint' ,data:"data"}}>  <h6 style={{color:"black"}} >Complaint</h6></Link>
-              <Link to={{pathname:'/page/feedback' ,data:"data"}}>  <h6 style={{color:"black"}} >Send Feedback</h6></Link>
+              <Link to={{pathname:'/about/Feedback' ,data:"data"}}>  <h6 style={{color:"black"}} >Send Feedback</h6></Link>
             </ui>
           </div>
           
@@ -74,8 +74,7 @@ Terms Of Use || Privacy Policy
         </div>
       </div>
     </div>
-</div>
   );
 }
 
-export default FooterPage;
+export default Common;

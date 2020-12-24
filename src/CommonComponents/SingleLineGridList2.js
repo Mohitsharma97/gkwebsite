@@ -3,13 +3,26 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import OutlinedCard from './OutlinedCard';
 import {Image} from 'react-bootstrap';
+import CardExample from './cardExample';
+import CategoryModal from './categoryModal';
 export default class SingleLineGridList2 extends Component {
+  state = {
+    modal: false
+  };
+
+   toggle = () => {
+    console.log(this.state.modal)
+    this.setState({
+      modal: !this.state.modal
+    });
+  };
   render() {
+    
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
           items: 5,
-          slidesToSlide: 3 // optional, default to 1.
+          slidesToSlide: 1 // optional, default to 1.
         },
         tablet: {
           breakpoint: { max: 1024, min: 464 },
@@ -22,17 +35,19 @@ export default class SingleLineGridList2 extends Component {
           slidesToSlide: 1 // optional, default to 1.
         }
       };
+
+
     return (
       <div>
 <Carousel
-  swipeable={false}
+  swipeable={true}
   draggable={false}
-  showDots={true}
+  showDots={false}
   responsive={responsive}
   ssr={false} // means to render carousel on server-side.
   infinite={true}
   autoPlay={true}
-  autoPlaySpeed={3000}
+  autoPlaySpeed={4000}
   keyBoardControl={true}
   customTransition="all .5"
   transitionDuration={500}
@@ -40,15 +55,16 @@ export default class SingleLineGridList2 extends Component {
   removeArrowOnDeviceType={[]}//["tablet", "mobile"]
   deviceType={this.props.deviceType}
   dotListClass="custom-dot-list-style"
-  itemClass="carousel-item-padding-40-px"
+  itemClass="carousel-item-padding-60-px"
 >
-  <div><OutlinedCard adj="1"/></div>
-  <div><OutlinedCard adj="2"/></div>
-  <div><OutlinedCard adj="3"/></div>
-  <div><OutlinedCard adj="4"/></div>
-  <div><OutlinedCard adj="5"/></div>
-  <div><OutlinedCard adj="6"/></div>
+  <div onClick={this.toggle}><CardExample image="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"/></div>
+  <div onClick={this.toggle}><CardExample image="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"/></div>
+  <div onClick={this.toggle}><CardExample image="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"/></div>
+  <div><CardExample image="https://mdbootstrap.com/img/Photos/Others/men.jpg"/></div>
+  <div><CardExample image="https://mdbootstrap.com/img/Photos/Others/food.jpg"/></div>
+  <div><CardExample image="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"/></div>
 </Carousel>
+<CategoryModal toggle={this.toggle} modal={this.state.modal}/>
       </div>
     );
   }

@@ -1,10 +1,15 @@
 import React,{ useState, useEffect } from 'react'
 import Navbar from '../CommonComponents/navbar';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import { MDBContainer, MDBRow, MDBCol } from "mdbreact";
+import '@fortawesome/fontawesome-free/css/all.min.css'; 
+import 'bootstrap-css-only/css/bootstrap.min.css'; 
+import 'mdbreact/dist/css/mdb.css';
+import { MDBContainer, MDBBtn } from "mdbreact";
 import FormPage from '../CommonComponents/FormPage';
 import './Category.css'
 import ItemExampleItems from '../CommonComponents/singleCard'
+import FooterPage from '../CommonComponents/FooterPage';
+import Footer from '../CommonComponents/Footer';
 import MessageExampleList from '../CommonComponents/CategoryDetails'
 const postsPerPage = 3;
 let arrayForHoldingPosts = [];
@@ -71,10 +76,15 @@ const listItems = numbers.map((number,index) =>
 })}
 </div>
 
-<button onClick={handleShowMorePosts}>Load more</button>
 </MDBContainer>
 
 </div>
-        </>
+<div className="loadmoreBtn">
+
+<MDBBtn outline color="danger" onClick={handleShowMorePosts}>Load more</MDBBtn>
+</div>
+<Footer style={{margin:10}}/>
+<FooterPage style={{margin:10}}/>
+</>
     )
 }

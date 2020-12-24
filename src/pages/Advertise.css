@@ -1,0 +1,11 @@
+.img-fluid:hover{
+    transform: scale(1.2);
+}
+
+h1 {
+    
+    font-family: 'Courier New', monospace;
+    position: relative;
+    font-family: Georgia, serif;
+  }
+

@@ -14,6 +14,8 @@ import ResponsiveEmbed from 'react-bootstrap/ResponsiveEmbed'
 import IframePage from '../CommonComponents/IframePage';
 import BlogPage from './BlogPage';
 import FooterPage from '../CommonComponents/FooterPage';
+import CategoryModal from '../CommonComponents/categoryModal';
+import MultiCarouselPage from '../CommonComponents/MultiCarouselPage';
 function HomePage() {
   
   
@@ -29,8 +31,14 @@ function HomePage() {
     <CustomNavbar/>
     <div style={{marginTop:16}}>
     <MDBRow >
+    <MDBCol size="6" >
+     
     <DropdownExampleSearchSelectionTwo />
+   
+    </MDBCol>
+    <MDBCol size="6" >
     <Example/>
+    </MDBCol>
     </MDBRow>
     </div>
     </>
@@ -85,6 +93,7 @@ function HomePage() {
 <div style={{margin:10}}>
 <SingleLineGridList/>
 </div>
+
 Consultant
 <div style={{margin:10}}>
 <SingleLineGridList2/>
@@ -100,6 +109,7 @@ Consultant
 <BlogPage/>
 <Footer style={{margin:10}}/>
 <FooterPage style={{margin:10}}/>
+
 </>
   );
 }
