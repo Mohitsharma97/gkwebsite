@@ -1,0 +1,31 @@
+
+
+ .selectcity{
+       
+       border-color: "skyblue" ;
+       margin-top: 2px;
+       width:140px;
+       border-radius: 25em;
+   }
+
+   @media screen and (max-width:995px) and (min-width:669px)
+   {
+   
+          .selectcity{
+              margin-left: 268px;
+          }
+             
+   }
+
+   
+
+   @media screen and (max-width:1024px) and (min-width:956px)
+{
+
+       .selectcity{
+           margin-left: 272px;
+       }
+
+}
+
+
