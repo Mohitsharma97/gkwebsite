@@ -25,7 +25,7 @@ function FooterPage() {
             <ui className="list-unstyledo" id="i">
               <br/>
               <Link to={{pathname:'/page/aboutCompany',data:"data"}}><h6>About Company</h6></Link>
-              <Link to={{pathname:'/page/feedback' ,data:"data"}}> <h6> Jobs & Career</h6></Link>
+              <Link to={{pathname:'/page/Careerpage' ,data:"data"}}> <h6> Jobs & Career</h6></Link>
               <Link to={{pathname:'/page/contactus' ,data:"data"}}> <h6>Contact Us</h6></Link>
               <Link to={{pathname:'/page/feedback' ,data:"data"}}> <h6>Partner With Us</h6></Link>
             </ui>
