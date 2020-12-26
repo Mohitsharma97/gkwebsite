@@ -1,0 +1,16 @@
+@media(max-width:768px){
+    #a{
+        padding-top: 20px;
+    
+    margin-right: 40px;
+    }
+    
+
+    #w{
+        padding-top: 20px;
+        margin-right: 400px;
+    }
+    .col-md-2{
+        padding-top: 20px;
+    }
+}

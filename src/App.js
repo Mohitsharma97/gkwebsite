@@ -6,6 +6,7 @@ import{Route,Switch} from 'react-router-dom';
 import AboutPage from './pages/AboutPage';
 import FeedbackPage from './pages/FeedbackPage';
 import ContactPage from './pages/ContactPage';
+import CareerPage from './pages/CareerPage';
 import Advertise from './pages/Advertise';
 function App() {
   
@@ -14,6 +15,7 @@ return(<>
   <Route exact path="/" component={HomePage}/>
   <Route exact path="/:category" component={CategoryPage}/>
   <Route exact path="/cat/Interior" component={InteriorPage}/>
+  <Route exact path="/about/Career" component={CareerPage}/>
   <Route exact path="/page/aboutCompany" component={AboutPage}/>
   <Route exact path="/page/feedback" component={FeedbackPage}/>
   <Route exact path="/page/ContactUs" component={ContactPage}/>

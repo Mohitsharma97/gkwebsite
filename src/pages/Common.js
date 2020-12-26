@@ -27,7 +27,7 @@ function Common() {
               <Link to={{pathname:'/about/Company' ,data:"data"}}><h6>About Company</h6></Link>
               <Link to={{pathname:'/about/Career' ,data:"data"}}> <h6> Jobs & Career</h6></Link>
               <Link to={{pathname:'/about/Contact' ,data:"data"}}> <h6>Contact Us</h6></Link>
-              <Link to={{pathname:'/about/Partner' ,data:"data"}}> <h6>Partner With Us</h6></Link>
+              <Link to={{pathname:'/about/feedback' ,data:"data"}}> <h6>Partner With Us</h6></Link>
             </ui>
           </div>
           <div className="col" id="w">

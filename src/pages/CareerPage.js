@@ -2,6 +2,7 @@ import Footer from '../CommonComponents/Footer';
 import FooterPage from '../CommonComponents/FooterPage';
 import React from 'react'
 import './CareerPage.css'
+import x from '../images/x.jpg'
 import Content from './Content'
 import web from '../images/x.jpg'
 import A from '../images/A.jpg'
@@ -12,11 +13,11 @@ function CareerPage() {
 		<div >
 			
 			<div class="  row " style={{paddingtop:180}} >
-			<img src={web} style={{height:500,width:1500 ,opacity:0.9}} alt="" class=""/>
+			<img src={web} style={{height:500,width:"100%" ,opacity:0.9}} alt="" class=""/>
 			</div>
 			<Content/>
 		
-			<section id="services"  style={{paddingBottom:70 ,paddingTop:30}} >
+			<section id="services"  style={{paddingBottom:90 ,paddingTop:50}} >
 			 
 	<section class="bg-light-gray home">
 		<div class="container">
@@ -44,155 +45,242 @@ function CareerPage() {
 			</div>
 		</div>
 	</section>
-			<div class="col-md-12" style={{ marginLeft:100 ,paddingTop:40}} >
-    <div class="row" ><br/><br/>
+			<div class="col-md-12"  style={{ marginLeft:10 ,paddingTop:60}} >
+    
     
 		
 		
-		 <div class="ui card" style={{height:350}}>
-  <div class="ui slide masked reveal image">
-    <img src={A} class="visible content"/>
-    <img src={B} class="hidden content"/>
-  </div>
-  <div class="content">
-    <a class="header">IT SERVICES</a>
-    
-  </div>
-  <div class="extra content">
-  <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
-                <div class="col-md-6">
-                			 <div class="form-group animate__animated animate__lightSpeedInLeft">
-                				<label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
-                				<input type="file"  name="file" required/>
-                			</div>
-                      </div>
-                      </form>
-  </div>
-</div>
-<div class="ui card" id="ss" style={{height:350}}>
-  <div class="ui slide masked reveal image">
-    <img src={web}class="visible content"/>
-    <img src={web} class="hidden content"/>
-  </div>
-  <div class="content">
-    <a class="header">Cells & Marketing</a>
-    <div class="meta">
-      <span class="date"></span>
-    </div>
-  </div>
-  <div class="extra content">
-  <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
-                <div class="col-md-6">
-                			 <div class="form-group animate__animated animate__lightSpeedInLeft">
-                				<label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
-                				<input type="file"  name="file" required/>
-                			</div>
-                      </div>
-                      </form>
-  </div>
-  
-</div>
-<div class="ui card" id="aa" style={{height:350}}>
-  <div class="ui slide masked reveal image">
-    <img src={web} class="visible content"/>
-    <img src={web} class="hidden content"/>
-  </div>
-  <div class="content">
-    <a class="header">Humon Resource</a>
-    <div class="meta">
+			<div class="row">
+        <div class="ui link cards">
+        <div class="card" style={{height:310}}>
+          <div class="image">
+            <img src={x}/>
+          </div>
+          <div class="content">
+          <span>
+          <a>
+            <i class="user icon"></i>
+            75 Friends
+            </a>
+          </span>
+            <div class="meta">
+              <a></a>
+            </div>
+            <div class="description">
+            <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
+            <div class="col-md-6">
+                   <div class="form-group animate__animated animate__lightSpeedInLeft">
+                    <label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
+                    <input type="file"  name="file" required/>
+                  </div>
+                  </div>
+                  </form>
+            </div>
+          </div>
+         
+        </div>
+        <div class="card" style={{height:310}}>
+          <div class="image">
+            <img src={A}/>
+          </div>
+          <div class="content">
+          <span>
+          <a>
+            <i class="user icon"></i>
+            35 Friends
+            </a>
+          </span>
+            <div class="meta">
+              <span class="date"></span>
+            </div>
+            <div class="description">
+            <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
+            <div class="col-md-6">
+                   <div class="form-group animate__animated animate__lightSpeedInLeft">
+                    <label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
+                    <input type="file"  name="file" required/>
+                  </div>
+                  </div>
+                  </form>
+            </div>
+          </div>
+         
+        </div>
+        <div class="card" style={{height:310}}>
+        <div class="image">
+          <img src={B}/>
+        </div>
+        <div class="content">
+        <span>
+        <a>
+          <i class="user icon"></i>
+          35 Friends
+          </a>
+        </span>
+          <div class="meta">
+            <span class="date"></span>
+          </div>
+          <div class="description">
+          <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
+          <div class="col-md-6">
+                 <div class="form-group animate__animated animate__lightSpeedInLeft">
+                  <label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
+                  <input type="file"  name="file" required/>
+                </div>
+                </div>
+                </form>
+          </div>
+        </div>
+        
+      </div>
+      <div class="card" style={{height:310}}>
+      <div class="image">
+        <img src={A}/>
+      </div>
+      <div class="content">
+      <span>
+      <a>
+        <i class="user icon"></i>
+        35 Friends
+        </a>
+      </span>
+        <div class="meta">
+          <span class="date"></span>
+        </div>
+        <div class="description">
+        <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
+        <div class="col-md-6">
+               <div class="form-group animate__animated animate__lightSpeedInLeft">
+                <label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
+                <input type="file"  name="file" required/>
+              </div>
+              </div>
+              </form>
+        </div>
+      </div>
       
     </div>
-  </div>
-  <div class="extra content">
-  <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
-                <div class="col-md-6">
-                			 <div class="form-group animate__animated animate__lightSpeedInLeft">
-                				<label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
-                				<input type="file"  name="file" required/>
-                			</div>
-                      </div>
-                      </form>
-  </div>
-  </div>
-  <div class="col-md-12"  >
-  <div className="row"><br/><br/><br/>
-  <div class="ui card" style={{height:350}}>
-  <div class="ui slide masked reveal image">
-    <img src={web}class="visible content"/>
-    <img src={web} class="hidden content"/>
-  </div>
-  <div class="content">
-    <a class="header">Calling</a>
-    <div class="meta">
+        </div>
+        
+        </div>		
+        
+		
+        <div class="row" style={{paddingTop:30}}>
+        <div class="ui link cards">
+        <div class="card" style={{height:310}}>
+          <div class="image">
+            <img src={x}/>
+          </div>
+          <div class="content">
+          <span>
+          <a>
+            <i class="user icon"></i>
+            75 Friends
+            </a>
+          </span>
+            <div class="meta">
+              <a></a>
+            </div>
+            <div class="description">
+            <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
+            <div class="col-md-6">
+                   <div class="form-group animate__animated animate__lightSpeedInLeft">
+                    <label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
+                    <input type="file"  name="file" required/>
+                  </div>
+                  </div>
+                  </form>
+            </div>
+          </div>
+         
+        </div>
+        <div class="card" style={{height:310}}>
+          <div class="image">
+            <img src={A}/>
+          </div>
+          <div class="content">
+          <span>
+          <a>
+            <i class="user icon"></i>
+            35 Friends
+            </a>
+          </span>
+            <div class="meta">
+              <span class="date"></span>
+            </div>
+            <div class="description">
+            <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
+            <div class="col-md-6">
+                   <div class="form-group animate__animated animate__lightSpeedInLeft">
+                    <label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
+                    <input type="file"  name="file" required/>
+                  </div>
+                  </div>
+                  </form>
+            </div>
+          </div>
+         
+        </div>
+        <div class="card" style={{height:310}}>
+        <div class="image">
+          <img src={B}/>
+        </div>
+        <div class="content">
+        <span>
+        <a>
+          <i class="user icon"></i>
+          35 Friends
+          </a>
+        </span>
+          <div class="meta">
+            <span class="date"></span>
+          </div>
+          <div class="description">
+          <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
+          <div class="col-md-6">
+                 <div class="form-group animate__animated animate__lightSpeedInLeft">
+                  <label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
+                  <input type="file"  name="file" required/>
+                </div>
+                </div>
+                </form>
+          </div>
+        </div>
+        
+      </div>
+      <div class="card" style={{height:310}}>
+      <div class="image">
+        <img src={x}/>
+      </div>
+      <div class="content">
+      <span>
+      <a>
+        <i class="user icon"></i>
+        35 Friends
+        </a>
+      </span>
+        <div class="meta">
+          <span class="date"></span>
+        </div>
+        <div class="description">
+        <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
+        <div class="col-md-6">
+               <div class="form-group animate__animated animate__lightSpeedInLeft">
+                <label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
+                <input type="file"  name="file" required/>
+              </div>
+              </div>
+              </form>
+        </div>
+      </div>
       
     </div>
-  </div>
-  <div class="extra content">
-  <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
-                <div class="col-md-6">
-                			 <div class="form-group animate__animated animate__lightSpeedInLeft">
-                				<label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
-                				<input type="file"  name="file" required/>
-                			</div>
-                      </div>
-                      </form>
-  </div>
-</div>
-<br/><br/>
-<div class="ui card" id="zz" style={{height:350}}>
-  <div class="ui slide masked reveal image">
-    <img src={web}class="visible content"/>
-    <img src={web} class="hidden content"/>
-  </div>
-  <div class="content">
-    <a class="header">Team Fu &amp; Hess</a>
-    <div class="meta">
-      <span class="date">Created in Sep 2014</span>
-    </div>
-  </div>
-  <div class="extra content">
-  <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
-                <div class="col-md-6">
-                			 <div class="form-group animate__animated animate__lightSpeedInLeft">
-                				<label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
-                				<input type="file"  name="file" required/>
-                			</div>
-                      </div>
-                      </form>
-  </div>
-  
-</div>
-<div class="ui card" id="xx" style={{height:350}}>
-  <div class="ui slide masked reveal image">
-    <img src={web}class="visible content"/>
-    <img src={web} class="hidden content"/>
-  </div>
-  <div class="content" >
-    <a class="header">Team Fu &amp; Hess</a>
-    <div class="meta">
-      <span class="date">Created in Sep 2014</span>
-    </div>
-  </div>
-  <div class="extra content">
-  <form  action="resume" enctype="multipart/form-data" method="post" style={{border:"1" }}>
-                <div class="col-md-6">
-                			 <div class="form-group animate__animated animate__lightSpeedInLeft">
-                				<label class="bmd-label-floating" style={{fontFamily: " system-ui" ,fontWeight:600}}><strong>Upload Resume</strong></label><br/>
-                				<input type="file"  name="file" required/>
-                			</div>
-                      </div>
-                      </form>
-  </div>
-  </div>
-</div>
-</div>
-    
-			
-                    
-					
-
-			</div>
+        </div>
+        
+        </div>		
+        
 		
+      
 			</div>
 			</section>
 	

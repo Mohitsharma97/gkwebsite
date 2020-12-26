@@ -19,6 +19,9 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import minimalSelect from './minimalSelect';
 
+ 
+
+ 
 
 
 const useStyles = makeStyles((theme) => ({
@@ -88,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function PrimarySearchAppBar() {
   const [btnColor,setbtncolor] = useState("#ffffff");
-  const btnstyle = {
+  const btnstyle = { 
     height:39,
     margin:'5px',
     color:btnColor
@@ -189,36 +192,13 @@ export default function PrimarySearchAppBar() {
 
 	return (
 		<div className={classes.grow}>
-			<AppBar position="fixed" style={{ backgroundColor: '#e60000' }}>
+			<AppBar position="fixed" style={{  background:" linear-gradient(to right, #c31432, #240b36)" }}>
 				<Toolbar >
 				
 					<Typography className={classes.title} variant="h4" noWrap>
 						GetKarigar
 					</Typography>
-					<Dropdown style={{ marginLeft: 45}}>
-						<Dropdown.Toggle style={{ borderColor:"#ffffff",color:"#ffffff"}} variant="#e60000"  id="dropdown-basic">
-							Select City
-						</Dropdown.Toggle>
-
-						<Dropdown.Menu>
-							<Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-							<Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-							<Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-						</Dropdown.Menu>
-					</Dropdown>
-					<div className={classes.search}>
-						<div className={classes.searchIcon}>
-							<SearchIcon />
-						</div>
-						<InputBase
-							placeholder="Search…"
-							classes={{
-								root: classes.inputRoot,
-								input: classes.inputInput
-							}}
-							inputProps={{ 'aria-label': 'search' }}
-						/>
-					</div>
+					
       
 					<div className={classes.grow} />
 					<div className={classes.sectionDesktop}>
