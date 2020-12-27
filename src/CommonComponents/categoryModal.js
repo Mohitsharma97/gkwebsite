@@ -25,7 +25,7 @@ class CategoryModal extends Component  {
               className="text-center light-blue darken-3 white-text"
             >
               <MDBIcon icon="pencil-alt" />
-              Contact From
+              {this.props.modalTitle}
             </MDBModalHeader>
             <MDBModalBody>
               <MDBInput label="Your name"  />

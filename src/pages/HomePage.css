@@ -20,7 +20,7 @@ div.container{
 @media screen and (max-width:768px){
     .dsspace{
         padding-top:15px;
-        margin-left:105px;
+        margin-left:115px;
     }
    
  
@@ -50,7 +50,42 @@ div.container{
         margin-left: 20px
     }
 }
-
+@media screen and (max-width:1600px) and (min-width:1500px)
+{
+    .dsspace{
+        margin-left: 26%
+    }
+}
+@media screen and (max-width:1500px) and (min-width:1400px)
+{
+    .dsspace{
+        margin-left: 35%
+    }
+}
+@media screen and (max-width:1400px) and (min-width:1300px)
+{
+    .dsspace{
+        margin-left: 45%
+    }
+}
+@media screen and (max-width:1300px) and (min-width:1200px)
+{
+    .dsspace{
+        margin-left: 65%
+    }
+}
+@media screen and (max-width:1200px) and (min-width:1100px)
+{
+    .dsspace{
+        margin-left: 85%
+    }
+}
+@media screen and (max-width:1100px) and (min-width:1072px)
+{
+    .dsspace{
+        margin-left: 95%
+    }
+}
 
 @media screen and (min-width:768px){
     .jumbomargin{

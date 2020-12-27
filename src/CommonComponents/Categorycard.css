@@ -1,0 +1,48 @@
+.catcard{
+    width: 22rem;
+}
+
+@media screen and (max-width:1478px) and (min-width:1382px) 
+{
+    .catcard{
+        width: 18rem;
+    }
+      
+}
+@media screen and (max-width:1382px) and (min-width:1205px) 
+{
+    .catcard{
+        width: 16rem;
+      
+    }
+      
+}
+@media screen and (max-width:1205px) and (min-width:1022px) 
+{
+    .catcard{
+        width: 14rem;
+      
+    }
+      
+}
+@media screen and (max-width:1022px) and (min-width:979px)
+{
+    .catcard{
+        width: 16rem;
+    }
+      
+}
+@media screen and (max-width:979px)and (min-width:874px)
+{
+    .catcard{
+        width: 14rem;
+    }
+      
+}
+@media screen and (max-width:874px)
+{
+    .catcard{
+        width: 12rem;
+    }
+      
+}

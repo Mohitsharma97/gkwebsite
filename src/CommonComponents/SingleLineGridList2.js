@@ -7,17 +7,25 @@ import CardExample from './cardExample';
 import CategoryModal from './categoryModal';
 export default class SingleLineGridList2 extends Component {
   state = {
-    modal: false
+    modal: false,
+    modalTitle:""
   };
+  
 
    toggle = () => {
-    console.log(this.state.modal)
     this.setState({
       modal: !this.state.modal
     });
   };
+  
+  
   render() {
-    
+    let Cardtoggle = (value) => {
+      this.setState({
+        modal: !this.state.modal,
+        modalTitle:value.name
+      });
+    };
     const responsive = {
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
@@ -26,7 +34,7 @@ export default class SingleLineGridList2 extends Component {
         },
         tablet: {
           breakpoint: { max: 1024, min: 464 },
-          items: 2,
+          items: 4,
           slidesToSlide: 2 // optional, default to 1.
         },
         mobile: {
@@ -57,14 +65,15 @@ export default class SingleLineGridList2 extends Component {
   dotListClass="custom-dot-list-style"
   itemClass="carousel-item-padding-60-px"
 >
-  <div onClick={this.toggle}><CardExample image="https://mdbootstrap.com/img/Photos/Others/images/43.jpg"/></div>
-  <div onClick={this.toggle}><CardExample image="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg"/></div>
-  <div onClick={this.toggle}><CardExample image="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(147).jpg"/></div>
-  <div><CardExample image="https://mdbootstrap.com/img/Photos/Others/men.jpg"/></div>
-  <div><CardExample image="https://mdbootstrap.com/img/Photos/Others/food.jpg"/></div>
-  <div><CardExample image="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20%28131%29.jpg"/></div>
+  {this.props.catData.map(value=>{
+   let cardImage="https://www.getkarigar.com/public/"+value.img
+    return(<div onClick={()=>{
+      Cardtoggle(value)
+    }}><CardExample cardTitle={value.name} image={cardImage}/></div>)
+  })}
+ 
 </Carousel>
-<CategoryModal toggle={this.toggle} modal={this.state.modal}/>
+<CategoryModal toggle={this.toggle} modal={this.state.modal} modalTitle={this.state.modalTitle}/>
       </div>
     );
   }

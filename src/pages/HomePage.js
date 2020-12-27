@@ -2,7 +2,7 @@
 import './HomePage.css';
 import D from '../images/D.jpg'
 import AboutPage from './AboutPage'
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import Navbar from '../CommonComponents/navbar';
 import CustomNavbar from '../CommonComponents/customNavbar';
 import Carousel from '../CommonComponents/carousel';
@@ -20,22 +20,52 @@ import BlogPage from './BlogPage';
 import FooterPage from '../CommonComponents/FooterPage';
 function HomePage() {
   
-  
+    
+  let [categorydata,setCategoryData] = useState();
   const  width  = window.innerWidth;
   console.log(width);
   const matches = useMediaQuery('(min-width:768px)');
-  
-  let navBar
+  const searchmatches = useMediaQuery('(min-width:1072px)');
+  let colsize;
+  let navBar;
   if(matches){
     navBar=<Navbar/>
   }else{
     navBar= <CustomNavbar/>
   }
+  if(searchmatches){
+    colsize="2"
+  }else{
+    colsize="3"
+  }
+ 
+  async function getdata(){
+   await fetch('http://localhost:3001/categoriesdata')
+  .then(response => response.json())
+  .then(data =>{
+    setCategoryData(data)
+  }) ;
+  }
+
+  useEffect(()=>{
+  getdata();
+  },[]);
+  let karigar=[];
+  let contractor=[];
+  let consultant=[];
+  let productSupplier=[];
+  if(categorydata){
+    karigar=categorydata.karigar;
+    contractor=categorydata.contractor;
+    consultant=categorydata.consultant;
+    productSupplier=categorydata.productSupplier;
+  }
+
   return (
 <>
 {navBar}
 <div className="jumbomargin">
-<Jumbotron fluid  style={{    backgroundImage:`url(${require("../images/room-3.jpeg")})`,height:400 }}>
+<Jumbotron fluid  style={{    backgroundImage:`url(${require("../images/room-3.jpeg")})`,height:450 }}>
 
 <MDBContainer>
 <MDBRow >
@@ -45,8 +75,8 @@ function HomePage() {
     <div style={{marginTop:95}}>
     
     <MDBRow  >
-    <MDBCol  size="3">
-   <div style={{marginLeft:10}}>
+    <MDBCol  size={colsize}>
+   <div style={{marginLeft:10}} className="dropspace">
     <Asynchronous />
     </div>
     </MDBCol>
@@ -65,31 +95,34 @@ function HomePage() {
 </MDBContainer>
     
 </Jumbotron>
-
+{width}
 </div>
 
 <h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Trending Categories</h1>
-<div style={{margin:10}}>
+<div >
 <SingleLineGridList/>
 </div>
 
 <h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Consultant</h1>
 <div style={{margin:10 ,paddingLeft:15}}>
-<SingleLineGridList2/>
+<SingleLineGridList2 catData = {consultant}/>
 </div>
 
-<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Consultant</h1>
+<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Karigar</h1>
 
 <div style={{margin:10,paddingLeft:15}}>
-<SingleLineGridList2/>
+<SingleLineGridList2 catData = {karigar}/>
 </div>
 
-<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Consultant</h1>
+<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Product Supplier</h1>
 <div style={{margin:10,paddingLeft:15}}>
-<SingleLineGridList2/>
+<SingleLineGridList2 catData = {productSupplier}/>
 </div>
 
-
+<h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Contractor</h1>
+<div style={{margin:10,paddingLeft:15}}>
+<SingleLineGridList2 catData = {contractor}/>
+</div>
 
 
 
