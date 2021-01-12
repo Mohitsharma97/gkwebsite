@@ -1,15 +1,50 @@
 import React, { Component } from "react";
-import { MDBContainer,  MDBInput, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody, MDBIcon } from "mdbreact";
-
-
+import { MDBAlert ,MDBContainer,  MDBInput, MDBBtn, MDBModal, MDBModalHeader, MDBModalBody, MDBIcon } from "mdbreact";
+import SubCategoryDropdown from './SubCategoryDropdown';
+import CityDropdown from './CityDropdown';
+import {Link} from 'react-router-dom';
 class CategoryModal extends Component  {
     
   
     logValue = value => {
       console.log(value);
     };
+    state={
+      subCategory:"",
+      city:"",
+      error:false,
+    }
+    
+
+    
   
     render() {
+
+      let errorMessage;
+      if(this.state.error){
+        errorMessage=<MDBAlert color="danger" >
+        Please!! Select City & Sub-Category
+    </MDBAlert>
+      }
+
+      let selectCity = e =>{
+        this.setState({
+          city:e.target.value
+        })
+      }
+      let selectSubCat = e => {
+        this.setState({
+          subCategory:e.target.value
+        })
+      };
+  
+     const btnClick = (e)=>{
+      if(this.state.subCategory==""||this.state.city=="")
+      e.preventDefault()
+      this.setState({
+        error:true
+      })
+     }
       return (
         <MDBContainer>
         
@@ -28,27 +63,28 @@ class CategoryModal extends Component  {
               {this.props.modalTitle}
             </MDBModalHeader>
             <MDBModalBody>
-              <MDBInput label="Your name"  />
-              <MDBInput label="Your email"  iconClass="dark-grey" />
-              <MDBInput label="Subject" />
-              <MDBInput
-                label="Your message"
-                type="textarea"
-                rows="2"
-                icon="pencil-alt"
-                iconClass="dark-grey"
-              />
+              <div>
+              <CityDropdown cityList={this.props.cityList} selectCity={selectCity} />
+              </div>
+              <div style={{marginTop:10}}>
+              <SubCategoryDropdown subCategory={this.props.subCategory.subcategory} selectSubCat={selectSubCat}/>
+              </div>
+           
               <div className="text-center mt-1-half">
+              <Link to={{pathname:'/'+this.props.catUrl+'/'+this.state.subCategory+'/'+this.state.city,data:"data"}} onClick={btnClick}>
                 <MDBBtn
                   color="info"
                   className="mb-2"
-                  onClick={this.props.toggle}
+                  
                 >
                   send
                   <MDBIcon icon="paper-plane" className="ml-1" />
                 </MDBBtn>
+                </Link>
               </div>
+              {errorMessage}
             </MDBModalBody>
+              
           </MDBModal>
         </MDBContainer>
       );

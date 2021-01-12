@@ -1,16 +1,24 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Asynchronous.css'
 
-function Asynchronous() {
+function Asynchronous(props) {
+
+
   return (
     <div>
-    <select class="ui dropdown selectcity"  style={{height:43}} >
-    
-    <option value="">Select city</option>
+    <select onChange={props.selctCity} class="ui dropdown selectcity"  style={{height:43}} >
+    <option value="0">Select city</option>
     <br/>
-    <option value="1">ghaziabad</option>
-    <br/>
-    <option value="0">Noida</option>
+   { props.citylist.map(city=>{
+      return(
+        <>
+        <option value={city.state_code}>{city.name}</option>
+        <br/>
+        </>
+      )
+    })
+    }
+   
   </select>
     </div>
   )

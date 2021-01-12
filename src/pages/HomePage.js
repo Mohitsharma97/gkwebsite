@@ -22,6 +22,7 @@ function HomePage() {
   
     
   let [categorydata,setCategoryData] = useState();
+  let [city,setCity]=useState();
   const  width  = window.innerWidth;
   console.log(width);
   const matches = useMediaQuery('(min-width:768px)');
@@ -39,6 +40,9 @@ function HomePage() {
     colsize="3"
   }
  
+  let selctCity = (e)=>{
+    setCity(e.target.value);
+  }
   async function getdata(){
    await fetch('http://localhost:3001/categoriesdata')
   .then(response => response.json())
@@ -54,13 +58,15 @@ function HomePage() {
   let contractor=[];
   let consultant=[];
   let productSupplier=[];
+  let cityList=[];
   if(categorydata){
     karigar=categorydata.karigar;
     contractor=categorydata.contractor;
     consultant=categorydata.consultant;
     productSupplier=categorydata.productSupplier;
+    cityList=categorydata.citylist;
   }
-
+    console.log(city);
   return (
 <>
 {navBar}
@@ -77,7 +83,7 @@ function HomePage() {
     <MDBRow  >
     <MDBCol  size={colsize}>
    <div style={{marginLeft:10}} className="dropspace">
-    <Asynchronous />
+    <Asynchronous citylist={cityList} selctCity={selctCity}/>
     </div>
     </MDBCol>
     <MDBCol size="2" >
@@ -105,23 +111,23 @@ function HomePage() {
 
 <h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Consultant</h1>
 <div style={{margin:10 ,paddingLeft:15}}>
-<SingleLineGridList2 catData = {consultant}/>
+<SingleLineGridList2 cityList={cityList} catData = {consultant}/>
 </div>
 
 <h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Karigar</h1>
 
 <div style={{margin:10,paddingLeft:15}}>
-<SingleLineGridList2 catData = {karigar}/>
+<SingleLineGridList2 cityList={cityList} catData = {karigar}/>
 </div>
 
 <h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Product Supplier</h1>
 <div style={{margin:10,paddingLeft:15}}>
-<SingleLineGridList2 catData = {productSupplier}/>
+<SingleLineGridList2 cityList={cityList} catData = {productSupplier}/>
 </div>
 
 <h1 className="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center text">Contractor</h1>
 <div style={{margin:10,paddingLeft:15}}>
-<SingleLineGridList2 catData = {contractor}/>
+<SingleLineGridList2 cityList={cityList} catData = {contractor}/>
 </div>
 
 

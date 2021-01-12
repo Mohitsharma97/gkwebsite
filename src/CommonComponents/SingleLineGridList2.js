@@ -8,7 +8,10 @@ import CategoryModal from './categoryModal';
 export default class SingleLineGridList2 extends Component {
   state = {
     modal: false,
-    modalTitle:""
+    modalTitle:"",
+    catId:"",
+    subCategory:"",
+    catUrl:"",
   };
   
 
@@ -21,10 +24,22 @@ export default class SingleLineGridList2 extends Component {
   
   render() {
     let Cardtoggle = (value) => {
-      this.setState({
-        modal: !this.state.modal,
-        modalTitle:value.name
-      });
+      fetch(`http://localhost:3001/getsubcategory/${value.id}`)
+      .then(response => response.json())
+      .then(data =>{
+        this.setState({
+          subCategory:data,
+          modal: !this.state.modal,
+          modalTitle:value.name,
+          catId:value.id,
+          catUrl:value.cat_url
+        })
+      }) ;
+      // this.setState({
+      //   modal: !this.state.modal,
+      //   modalTitle:value.name,
+      //   catId:value.id,
+      // });
     };
     const responsive = {
         desktop: {
@@ -44,7 +59,7 @@ export default class SingleLineGridList2 extends Component {
         }
       };
 
-
+        
     return (
       <div>
 <Carousel
@@ -73,7 +88,7 @@ export default class SingleLineGridList2 extends Component {
   })}
  
 </Carousel>
-<CategoryModal toggle={this.toggle} modal={this.state.modal} modalTitle={this.state.modalTitle}/>
+<CategoryModal catUrl={this.state.catUrl} cityList={this.props.cityList} toggle={this.toggle} modal={this.state.modal} modalTitle={this.state.modalTitle} subCategory={this.state.subCategory}/>
       </div>
     );
   }

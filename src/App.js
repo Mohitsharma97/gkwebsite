@@ -8,12 +8,14 @@ import FeedbackPage from './pages/FeedbackPage';
 import ContactPage from './pages/ContactPage';
 import CareerPage from './pages/CareerPage';
 import Advertise from './pages/Advertise';
+import SubCatPage from './pages/SubCatPage';
 function App() {
   
 return(<>
 <Switch>
   <Route exact path="/" component={HomePage}/>
-  <Route exact path="/:category" component={CategoryPage}/>
+  <Route exact path="/:category" component={SubCatPage}/>
+  <Route exact path="/:category/:subCategory/:city" component={CategoryPage}/>
   <Route exact path="/cat/Interior" component={InteriorPage}/>
   <Route exact path="/about/Career" component={CareerPage}/>
   <Route exact path="/page/aboutCompany" component={AboutPage}/>

@@ -10,53 +10,77 @@ import './Category.css'
 import ItemExampleItems from '../CommonComponents/singleCard'
 import FooterPage from '../CommonComponents/FooterPage';
 import Footer from '../CommonComponents/Footer';
-import MessageExampleList from '../CommonComponents/CategoryDetails'
-const postsPerPage = 3;
+import MessageExampleList from '../CommonComponents/CategoryDetails';
+import ConsumerDetailsModal from '../CommonComponents/ConsumerDetailsModal';
+import OtpModal from '../CommonComponents/OtpModal';
+const postsPerPage = 10;
 let arrayForHoldingPosts = [];
 export default function CategoryPage(props) {
-   
+
+    let selectedCat = props.match.params.category;
+    let selectedSubCat=props.match.params.subCategory;
+    let selectedCity=  props.match.params.city;
+    const [vendorList,setVendorList]=useState([]);
     const [postsToShow, setPostsToShow] = useState([]);
-    const [next, setNext] = useState(3);
-    let posts = [{a:"1",b:"2"},{a:"2",b:"3"},{a:"2",b:"3"},{a:"2",b:"3"},{a:"2",b:"3"},{a:"2",b:"3"}];
-    const loopWithSlice = (start, end) => {
-      const slicedPosts = posts.slice(start, end);
-      arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
-      setPostsToShow(arrayForHoldingPosts);
-    };
-  
-  
-  
-    const handleShowMorePosts = () => {
-      loopWithSlice(next, next + postsPerPage);
-      setNext(next + postsPerPage);
-    };
-
-
+    const [next, setNext] = useState(10);
+    const [modal,setModal] = useState(false);
+    const [otpModal,setOtpModal] = useState(false);
+    let switchModal=()=>{
+      setModal(!modal);
+      setOtpModal(!otpModal);
+    }
+    let otpModalToggle =()=>{
+     setOtpModal(!otpModal);
+    }
+    let toggle = ()=>{
+      setModal(!modal);
+    }
+    
 
     useEffect(
         ()=>{
-            navigator.geolocation.getCurrentPosition(function(position) {
-                console.log("Latitude is :", position.coords.latitude);
-                console.log("Longitude is :", position.coords.longitude);
-         fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + position.coords.latitude + ',' + position.coords.longitude + '&key=' + 'AIzaSyBn-2hw0LMNCf1OG4JQTNLHLvPSKgPx9ts')
-        .then((response) => response.json())
-        .then((responseJson) => {
-            console.log('ADDRESS GEOCODE is BACK!! => ' + JSON.stringify(responseJson));
-})
-              });
-              loopWithSlice(0, postsPerPage);
-        },[]
+//             navigator.geolocation.getCurrentPosition(function(position) {
+//                 console.log("Latitude is :", position.coords.latitude);
+//                 console.log("Longitude is :", position.coords.longitude);
+//          fetch('https://maps.googleapis.com/maps/api/geocode/json?address=' + position.coords.latitude + ',' + position.coords.longitude + '&key=' + 'AIzaSyBn-2hw0LMNCf1OG4JQTNLHLvPSKgPx9ts')
+//         .then((response) => response.json())
+//         .then((responseJson) => {
+//             console.log('ADDRESS GEOCODE is BACK!! => ' + JSON.stringify(responseJson));
+// })
+//               });
+             
+                
+                 fetch(`http://localhost:3001/${selectedCat}/${selectedSubCat}/${selectedCity}`)
+                 .then(response => response.json())
+                 .then(data =>{
+                    setVendorList(data.vendorsList);
+                    loopWithSlice(0, postsPerPage,data.vendorsList);
+                   
+                 });
+                 arrayForHoldingPosts=[];
+                 
+        },[selectedSubCat]
         
     )
-    const numbers = [{a:"1",b:"2"},{a:"2",b:"3"},{a:"2",b:"3"},{a:"2",b:"3"},{a:"2",b:"3"},{a:"2",b:"3"}];
-const listItems = numbers.map((number,index) =>
-    <li>{number.a}{index}</li>
-);
+  
+   
+    const loopWithSlice = (start, end,data) => {
+  
+        const slicedPosts = data.slice(start, end);
+        arrayForHoldingPosts = [...arrayForHoldingPosts, ...slicedPosts];
+        setPostsToShow(arrayForHoldingPosts);
+         
+      };
+    
+   
+     
+      const handleShowMorePosts = () => {
+       
+        loopWithSlice(next, next + postsPerPage,vendorList);
+        setNext(next + postsPerPage);
+      };
+ 
     return (
-        // <div>
-        //     {props.match.params.category}
-        //     {props.location.data}
-        // </div>
         <>
 <Navbar/>
 <div style={{marginTop:65}}>
@@ -72,7 +96,7 @@ const listItems = numbers.map((number,index) =>
  <div style={{marginInlineStart:20,marginTop:20}}>   
 
 {postsToShow.map((data,index)=>{
-    return( <ItemExampleItems data={data}/> );
+    return( <div onClick={toggle} key={index} style={{marginTop:15}}><ItemExampleItems data={data}/></div> );
 })}
 </div>
 
@@ -85,6 +109,8 @@ const listItems = numbers.map((number,index) =>
 </div>
 <Footer style={{margin:10}}/>
 <FooterPage style={{margin:10}}/>
+<ConsumerDetailsModal modal={modal} toggle={toggle} switchModal={switchModal}/>
+<OtpModal modal={otpModal} toggle={otpModalToggle} />
 </>
     )
 }
